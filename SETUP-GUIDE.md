@@ -1,7 +1,9 @@
 # 上手清单 · 已完成
 
-> ✅ **2026-11-08 全部跑通**：代码已推送到 https://github.com/heimianmo/- （公开仓库，默认分支 main）。
-> 当时网页又抽风了，所以直接用了账号里已有的空仓库，绕开「新建仓库」这一步。
+> ✅ **2026-11-08 全部跑通**：代码在 https://github.com/heimianmo/meng-project
+> （公开仓库，默认分支 main）。最初推到已有的空仓库 `heimianmo/-`，后来改名为 `meng-project`，
+> 文件与提交历史全部保留，本地远程地址也已同步并用 `git ls-remote` 验证通过。
+> 当时网页又抽风了，所以绕开了「新建仓库」这一步。
 > 下面保留完整步骤供复盘；**日常只看最后一节「以后每周就这四行」就够了**。
 
 ---
@@ -15,7 +17,7 @@
 | GitHub 端登记公钥 | ✅ `Hi heimianmo! You've successfully authenticated` |
 | 安装 Git for Windows 2.56.0 | ✅ 装在 `D:\Git` |
 | Git 全局配置 | ✅ main 分支、中文不乱码、Windows 换行、系统 OpenSSH、VS Code 编辑器 |
-| 提交身份与远程地址 | ✅ `heimianmo` + noreply 邮箱；origin 指向 `git@github.com:heimianmo/-.git` |
+| 提交身份与远程地址 | ✅ `heimianmo` + noreply 邮箱；origin 指向 `git@github.com:heimianmo/meng-project.git` |
 | 首次提交并推送 | ✅ `65d0f56`，6 个文件，GitHub 端已核对 |
 
 **为什么之前进不去**：`github.com` 网页的 443 通道是间歇性阻断的，不是你操作有误。
@@ -122,14 +124,16 @@ GitHub 端已核对：`.gitignore`、`README.md`、`GIT-CHEATSHEET.md`、`SETUP-
 
 **到这一步，整套循环就跑通了。**
 
-### 想把仓库名改得正经一点（可选）
+### 仓库改名 —— 已完成
 
-等网页恢复，打开 https://github.com/heimianmo/-/settings → 最上面 Repository name
-→ 改成 `medical-informatics-starter` → 点 Rename。代码和提交历史都会保留。
-改完回来更新一下本地地址：
+后来在仓库 **Settings** 里把名字从 `-` 改成了 `meng-project`。
+旧链接会自动跳转（服务端返回 301），文件、两次提交、main 分支全部保留。
+本地也已同步并验证：
 
 ```bash
-git remote set-url origin git@github.com:heimianmo/medical-informatics-starter.git
+git remote set-url origin git@github.com:heimianmo/meng-project.git
+git ls-remote origin
+# 返回 HEAD 与 refs/heads/main，说明改名后照样能推送
 ```
 
 ---
