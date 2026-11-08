@@ -1,6 +1,8 @@
-# 上手清单：从这里开始
+# 上手清单 · 已完成
 
-按顺序做，全程大约十分钟。**先看「已经帮你做好的」部分，别重复劳动。**
+> ✅ **2026-11-08 全部跑通**：代码已推送到 https://github.com/heimianmo/- （公开仓库，默认分支 main）。
+> 当时网页又抽风了，所以直接用了账号里已有的空仓库，绕开「新建仓库」这一步。
+> 下面保留完整步骤供复盘；**日常只看最后一节「以后每周就这四行」就够了**。
 
 ---
 
@@ -10,9 +12,11 @@
 |---|---|
 | 生成 SSH 密钥对 | ✅ `C:\Users\Administrator\.ssh\id_ed25519` |
 | 把 github.com 的 SSH 固定到 443 通道 | ✅ 已实测握手成功 |
-| Git 全局配置 | ✅ 默认分支 main、中文文件名不乱码、Windows 换行、系统 OpenSSH |
-| 本仓库初始化 | ✅ 已 `git init` |
-| Git for Windows 2.56.0 安装包 | ✅ 已下载到 `..\installers\` |
+| GitHub 端登记公钥 | ✅ `Hi heimianmo! You've successfully authenticated` |
+| 安装 Git for Windows 2.56.0 | ✅ 装在 `D:\Git` |
+| Git 全局配置 | ✅ main 分支、中文不乱码、Windows 换行、系统 OpenSSH、VS Code 编辑器 |
+| 提交身份与远程地址 | ✅ `heimianmo` + noreply 邮箱；origin 指向 `git@github.com:heimianmo/-.git` |
+| 首次提交并推送 | ✅ `65d0f56`，6 个文件，GitHub 端已核对 |
 
 **为什么之前进不去**：`github.com` 网页的 443 通道是间歇性阻断的，不是你操作有误。
 实测时它一开始全部 IP 超时，过几分钟再测又变成 1.2 秒正常打开。
@@ -98,24 +102,35 @@ ssh -T git@github.com
 看到 `Hi 你的用户名! You've successfully authenticated, but GitHub does not provide shell access.`
 就彻底通了。后面 clone、push、pull 都不会再受网页抽风影响。
 
-## 第 7 步：在网页上新建一个空仓库
+## 第 7 步：新建空仓库 —— 这步跳过了
 
-右上角 **+** → **New repository**，仓库名建议 `medical-informatics-starter`，
-**不要勾选** Add a README / .gitignore / license（本地已经有了，勾了会冲突）。
-建好后复制那个 `git@github.com:...` 开头的 SSH 地址。
+原计划打开 https://github.com/new 建 `medical-informatics-starter`，但当时网页整站超时。
+账号里本来就有一个空的公开仓库 `heimianmo/-`，直接用了它，**不需要新建**。
 
-## 第 8 步：把本地仓库推上去
+## 第 8 步：推送 —— 已完成
+
+实际执行并成功的命令：
 
 ```bash
-cd C:\Users\Administrator\WorkBuddy\2026-11-08-19-45-39\medical-informatics-starter
-python examples/vitals_summary.py
-git remote add origin git@github.com:你的用户名/medical-informatics-starter.git
-git add .
-git commit -m "初始化仓库：README、命令速查与生命体征示例"
+git remote set-url origin git@github.com:heimianmo/-.git
 git push -u origin main
 ```
 
-刷新网页，文件都在了。**到这一步，整套循环就跑通了。**
+返回 `* [new branch] main -> main`，`git status -sb` 显示 `## main...origin/main`。
+GitHub 端已核对：`.gitignore`、`README.md`、`GIT-CHEATSHEET.md`、`SETUP-GUIDE.md`、
+`data/`、`examples/` 全部存在，默认分支 main。
+
+**到这一步，整套循环就跑通了。**
+
+### 想把仓库名改得正经一点（可选）
+
+等网页恢复，打开 https://github.com/heimianmo/-/settings → 最上面 Repository name
+→ 改成 `medical-informatics-starter` → 点 Rename。代码和提交历史都会保留。
+改完回来更新一下本地地址：
+
+```bash
+git remote set-url origin git@github.com:heimianmo/medical-informatics-starter.git
+```
 
 ---
 
