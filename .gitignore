@@ -1,0 +1,46 @@
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+.pytest_cache/
+.coverage
+
+# ===== 编辑器和系统 =====
+.vscode/*
+!.vscode/settings.json
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== 医疗数据：绝对不要上传 =====
+# 真实病历、影像、生理信号一律不得提交。
+# GitHub 公开仓库等于公开发布，涉及患者隐私和相关法规，这条是红线。
+*.dcm
+*.dicom
+*.nii
+*.nii.gz
+*.mhd
+*.raw
+*.edf
+*.bdf
+*.hea
+*.mat
+*.dat
+data/private/
+data/patient*/
+data/real/
+
+# 本仓库的 data/vitals_sample.csv 是虚构示例数据，可以安全提交。
+# 真实数据请放在 data/private/ 下，已经在上面被忽略。
+
+# ===== 密钥和配置 =====
+.env
+*.pem
+*.key
+secrets.*
+config.ini
